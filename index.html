@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>nSearch</title>
+      
+    <style>
+        .sectionsearchbar{
+    background-color: #343a40;
+    color: white;
+    padding: 10px;
+}  
+    </style>
+  </head>
+  <body>
+    <!-- Image and text -->
+    <nav id="navbar" class="navbar navbar-dark bg-primary">
+      <a class="navbar-brand" href="index.html">
+        <img src="assets/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Novessa
+      </a>
+    </nav>
+      
+    <div class="container-fluid sectionsearchbar">
+        <div class="row justify-content-around">
+            <div class="col-2">
+                <h3>nSearch</h3>
+            </div>
+            <div class="col-2">
+                <a id="getJSON" class="btn btn-primary ml-3" href="#">Get JSON</a>
+                <br>
+                <a class="ml-3" href="https://konklone.io/json/">Convert JSON to CSV</a>
+            </div>
+        </div>  
+    </div>
+      
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <script>
+  (function() {
+    var cx = '006926779689735145395:ul476h9kpbs';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+            </div>
+        </div>  
+    </div>
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+      
+    <script>
+      var start = 1;
+      var query;
+        
+      function script() {
+          query = document.getElementById('gsc-i-id1').value;
+          console.log(query);
+      };
+        
+      function hasClass(elem, className) {
+        return elem.className.split(' ').indexOf(className) > -1;
+      }
+
+      document.getElementById('getJSON').onclick = function () {
+          script();
+          var hrefvalue = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCxg0zU9Nu9FO1HoQKobjUasVwnupgNBiI&cx= 006926779689735145395:ul476h9kpbs&q="+query+"&start="+start;
+          console.log(hrefvalue);
+          window.open(hrefvalue, '_blank');
+      };
+        
+      document.addEventListener('click', function (e) {
+            if (hasClass(e.target, 'gsc-cursor-page')) {
+                // .bu clicked
+                // Do your thing
+                var page = e.target.textContent;
+                start = ((10*page)-9);
+                console.log(e.target.textContent);
+                console.log(start);
+            } 
+        }, false);
+    </script>
+  </body>
+</html>
